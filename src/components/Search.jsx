@@ -2,7 +2,7 @@ import React from 'react'
 
 class Search extends React.Component {
     state = {
-        search: '',
+        search: 'iron man',
         type: 'all',
     }
 
@@ -19,6 +19,10 @@ class Search extends React.Component {
         })
     }
 
+    handleSort = (e) => {
+        this.props.sortMovies(this.state.search, this.state.type)
+    }
+
     render() {
         return  <div className="row">
         <div className="col s12">
@@ -33,6 +37,7 @@ class Search extends React.Component {
             />
             <button className="btn search-btn" onClick={() => this.props.searchMovies(this.state.search, this.state.type)}>Search</button>
           </div>
+          
           <div>
             <label>
                 <input className="with-gap" name="type" type="radio" data-type="all" onChange={this.handleFilter} checked={this.state.type === 'all'} />
@@ -46,6 +51,9 @@ class Search extends React.Component {
                 <input className="with-gap" name="type" type="radio" data-type="series" onChange={this.handleFilter} checked={this.state.type === 'series'} />
                 <span>Series only</span>
             </label>
+          </div>
+          <div className="sortData">
+            <button className="btn sort-btn" onClick={this.handleSort}>Sort by date</button>
           </div>
         </div>
       </div>

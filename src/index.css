@@ -31,3 +31,7 @@ nav {
 label:not(:last-child) {
   margin-right: 1rem;
 }
+
+.sortData{
+  margin-top: 1rem;
+}
